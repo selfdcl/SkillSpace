@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "theme", "target_sec", "aspect", "look_id", "music_id", "timeline", "titles", "captions", "graphics", "missing"],
+  "properties": {
+    "schema": {"const": "aerial-edit/v2"}, "theme": {"type": "string"}, "target_sec": {"type": "number", "exclusiveMinimum": 0}, "aspect": {"type": "string"}, "look_id": {"type": "string"}, "music_id": {"type": "string"},
+    "timeline": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["part_id", "role", "source_in", "source_out", "cut_at", "transition", "beat_kind"], "properties": {"part_id": {"type": "string"}, "role": {"type": "string"}, "source_in": {"type": "number", "minimum": 0}, "source_out": {"type": "number", "exclusiveMinimum": 0}, "cut_at": {"type": "number", "minimum": 0}, "transition": {"enum": ["cut", "fade", "fade-black"]}, "beat_kind": {"enum": ["none", "beat", "downbeat", "accent"]}, "stabilize": {"type": "boolean"}}}},
+    "titles": {"type": "array", "items": {"$ref": "#/$defs/title"}}, "captions": {"type": "array", "items": {"$ref": "#/$defs/caption"}},
+    "graphics": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["file", "start_sec", "end_sec", "position", "scale", "opacity"], "properties": {"file": {"type": "string", "minLength": 1}, "start_sec": {"type": "number"}, "end_sec": {"type": "number", "exclusiveMinimum": 0}, "position": {"type": "string"}, "scale": {"type": "number", "exclusiveMinimum": 0}, "opacity": {"type": "number", "minimum": 0, "maximum": 1}}}}, "missing": {"type": "array"}
+  },
+  "$defs": {"title": {"type": "object", "additionalProperties": false, "required": ["text", "start_sec", "end_sec"], "properties": {"text": {"type": "string"}, "start_sec": {"type": "number"}, "end_sec": {"type": "number", "exclusiveMinimum": 0}, "animated": {"type": "boolean"}}}, "caption": {"type": "object", "additionalProperties": false, "required": ["text", "start_sec", "end_sec"], "properties": {"text": {"type": "string"}, "start_sec": {"type": "number"}, "end_sec": {"type": "number", "exclusiveMinimum": 0}}}}
+}

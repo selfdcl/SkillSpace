@@ -1,0 +1,8 @@
+{
+  "schema": "aerial-looks/v1",
+  "looks": [
+    {"id": "natural", "label": "自然", "vf": "eq=contrast=1.03:saturation=1.05:gamma=1.01"},
+    {"id": "warm-gold", "label": "暖金", "vf": "eq=contrast=1.06:saturation=1.10:gamma=1.02,colorbalance=rs=.05:gs=.015:bm=-.04"},
+    {"id": "teal-orange", "label": "青橙", "vf": "eq=contrast=1.08:saturation=1.08,colorbalance=rs=.035:bs=-.025:rm=.015:bm=.025"}
+  ]
+}

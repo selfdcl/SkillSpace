@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "theme", "target_sec", "platform", "aspect", "pace", "look_request", "titles", "subtitles", "voiceover", "music"],
+  "properties": {
+    "schema": {"const": "aerial-brief/v1"}, "theme": {"type": "string", "minLength": 1},
+    "target_sec": {"type": "number", "exclusiveMinimum": 0}, "platform": {"type": "string", "minLength": 1},
+    "aspect": {"type": "string", "minLength": 1}, "pace": {"type": "string", "minLength": 1},
+    "look_request": {"type": "string", "minLength": 1}, "titles": {"type": "boolean"},
+    "subtitles": {"type": "boolean"}, "voiceover": {"type": "boolean"},
+    "music": {"type": "object", "additionalProperties": false, "required": ["source", "vocal", "commercial_required"], "properties": {"source": {"type": "string"}, "vocal": {"type": "boolean"}, "commercial_required": {"type": "boolean"}}}
+  }
+}

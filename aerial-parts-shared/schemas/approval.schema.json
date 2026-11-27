@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "status", "edit_sha256", "look_id", "look_sha256", "music_id", "music_sha256", "approved_at"],
+  "properties": {
+    "schema": {"const": "aerial-approval/v1"},
+    "status": {"const": "approved"},
+    "edit_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "look_id": {"type": "string", "minLength": 1},
+    "look_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "music_id": {"type": "string", "minLength": 1},
+    "music_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "approved_at": {"type": "string", "minLength": 20},
+    "note": {"type": "string"}
+  }
+}

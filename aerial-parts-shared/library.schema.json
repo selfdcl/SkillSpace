@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AerialPartsLibrary",
+  "type": "object",
+  "required": ["schema", "created", "source_dir", "parts_dir", "parts"],
+  "properties": {
+    "schema": { "const": "aerial-parts/v1" },
+    "created": { "type": "string" },
+    "source_dir": { "type": "string" },
+    "parts_dir": { "type": "string" },
+    "notes": { "type": "string" },
+    "parts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/part" }
+    }
+  },
+  "$defs": {
+    "part": {
+      "type": "object",
+      "required": [
+        "id", "src", "in", "out", "file", "dur",
+        "shot", "subject", "light", "move", "quality", "note"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-zA-Z0-9_-]+$" },
+        "src": { "type": "string" },
+        "in": { "type": "number", "minimum": 0 },
+        "out": { "type": "number", "minimum": 0 },
+        "file": { "type": "string" },
+        "dur": { "type": "number", "exclusiveMinimum": 0, "maximum": 6.05 },
+        "shot": {
+          "enum": ["拉升", "环绕", "横移", "俯冲", "悬停", "未定"]
+        },
+        "subject": { "type": "string", "minLength": 1 },
+        "light": {
+          "enum": ["日出", "日落", "晴", "阴", "夜景", "黄金时刻", "未定"]
+        },
+        "move": { "type": "string" },
+        "motion_group": { "type": "string" },
+        "phase": {
+          "enum": ["起势", "发展", "高潮", "收束"]
+        },
+        "quality": { "enum": ["可用", "勉强"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
